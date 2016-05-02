@@ -37,7 +37,9 @@ class MRRatingCounter(MRJob):
 	
 		##Yielding None as key and a tuple of number of ratings of the movie and its movie ID
 		yield None, (sum(counts), movieID)
-		
+	#This mapper does nothing; it's just here to avoid a bug in some
+	#versions of mrjob related to "non-script steps." Normally this
+	#wouldn't be needed.	
 	def mapper_passthrough(self, key, value):
         
 		yield key, value
@@ -45,6 +47,7 @@ class MRRatingCounter(MRJob):
 	##The reducer yields the most popular movie id and the number of times it is rated
 	def reducer_find_max(self, key, values):
 	
+		##Yielding the maximum rating and its corresponding Movie ID
 		yield max(values)
 	
 ##The main method of the sourcecode				
