@@ -41,8 +41,7 @@ class MostPopularMovie(MRJob):
 		##Yielding rating and 1
 		yield movieID, 1
 
-	##The reducer functions doesnt take any key/value pairs; 
-	#it creates a dictionary of movie id & movie title as key/value pairs 
+	##The reducer function creates a dictionary of movie id & movie title as key/value pairs 
     def reducer_init(self):
 	
 		##Creating a dictionary to key/value pairs of movie id & movie title
