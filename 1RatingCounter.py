@@ -10,7 +10,7 @@ class MRRatingCounter(MRJob):
 	##Function to define the multistep MapReduce jobs
 	def steps(self):
 	
-		##Function to define the multistep MapReduce jobs
+		
 		return [
 		
 			##Mapper and Reducer functions of 1st step of the MapReduce job
@@ -29,7 +29,7 @@ class MRRatingCounter(MRJob):
 		##Splitting the tab delimited data and storing them into individual variables
 		(userID, movieID, rating, timestamp) = line.split('\t')  
 
-		##Yielding rating and 1
+		##Yielding movieID and 1
 		yield movieID, 1
 			
 	##The reducer function uses the grouped and sorted key/value pairs and outputs the final result
